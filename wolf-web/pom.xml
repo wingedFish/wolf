@@ -11,6 +11,52 @@
 
     <groupId>com.wingedfish.wolf</groupId>
     <artifactId>wolf-web</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>wolf-web</name>
+    <packaging>war</packaging>
+    <url></url>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.wingedfish.wolf</groupId>
+            <artifactId>wolf-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <finalName>jd-chongzhitask-web.war</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+    <profiles>
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <filters>
+                    <filter>development.properties</filter>
+                </filters>
+            </build>
+        </profile>
+        <profile>
+            <id>production</id>
+            <build>
+                <filters>
+                    <filter>production.properties</filter>
+                </filters>
+            </build>
+        </profile>
+    </profiles>
 
 
 </project>
